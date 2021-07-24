@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--
+        =====================================================
+        Product Template Extension FORM
+        =====================================================
+        -->
+
+        <record id="product_template_form_view_inherit" model="ir.ui.view">
+            <field name="name">product.template.form.view.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='categ_id']" position="after">
+                    <field name="product_family_id" string="Product family"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="product_template_form_view_website_inherit" model="ir.ui.view">
+            <field name="name">product.template.form.view.website.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="website_sale.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='product_template_images']" position="after">
+                    <group name="product_website_description" string="Website description">
+                        <field name="website_description" nolabel="1"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

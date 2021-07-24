@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <data>
+
+    <!-- 
+    =====================================================
+    Product Family Entries
+    =====================================================
+    -->
+
+        <record id="view_product_family_tree" model="ir.ui.view">
+            <field name="name">product.family.tree</field>
+            <field name="model">product.family</field>
+            <field name="arch" type="xml">
+                <tree string="Product Family Entries">
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_product_family_form" model="ir.ui.view">
+            <field name="name">product.family.form</field>
+            <field name="model">product.family</field>
+            <field name="arch" type="xml">
+                <form string="Product Family Entry">
+                    <field name="code"/>
+                    <field name="name"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_product_family_filter" model="ir.ui.view">
+            <field name="name">product.family.search</field>
+            <field name="model">product.family</field>
+            <field name="arch" type="xml">
+                <search string="Search Product Family">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <separator/>
+               </search>
+            </field>
+        </record>
+
+        <record id="action_product_family" model="ir.actions.act_window">
+            <field name="name">Product family</field>
+            <field name="res_model">product.family</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_product_family_filter"/>
+            <field name="help">With this option you can create product family entries</field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="action_product_family_tree">
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_product_family_tree"/> 
+            <field name="act_window_id" ref="action_product_family"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="action_product_family_form">
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_product_family_form"/>
+            <field name="act_window_id" ref="action_product_family"/>
+        </record>
+
+        <menuitem name="Product family" id="menu_action_product_family" parent="sale.product_menu_catalog" action="action_product_family" sequence="5"/>
+
+    </data>
+</odoo>
