@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <data>
+        <!--
+        =====================================================
+        Stock Scrap Extension FORM
+        =====================================================
+        -->
+        <record id="stock_scrap_form_view2_inherit" model="ir.ui.view">
+            <field name="name">stock.scrap.form2.inherit.mrp.mh</field>
+            <field name="model">stock.scrap</field>
+            <field name="inherit_id" ref="stock.stock_scrap_form_view2"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group" position="after">
+                    <notebook>
+                        <page string="General Information">
+                            <label for="scrap_reason_id"/>
+                            <field name="scrap_reason_id" string='Scrap reason'/>
+                            <newline/>
+                            <newline/>
+                            <field name="reason_note" string='Note'/>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="stock_scrap_form_view_inherit" model="ir.ui.view">
+            <field name="name">stock.scrap.form.inherit.mrp.mh</field>
+            <field name="model">stock.scrap</field>
+            <field name="inherit_id" ref="stock.stock_scrap_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group" position="after">
+                    <notebook>
+                        <page string="General Information">
+                            <label for="scrap_reason_id"/>
+                            <field name="scrap_reason_id" string='Scrap reason'/>
+                            <newline/>
+                            <newline/>
+                            <field name="reason_note" string='Note'/>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
