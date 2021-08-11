@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <data>
+        <!--
+        =====================================================
+        CRM Team Extension
+        =====================================================
+        -->
+        <record id="crm_team_view_tree_inherit_mh" model="ir.ui.view">
+            <field name="name">crm.team.tree.inherit.mh</field>
+            <field name="model">crm.team</field>
+            <field name="inherit_id" ref="sales_team.crm_team_view_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="team_code"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="crm_team_view_form_inherit_mh" model="ir.ui.view">
+            <field name="name">crm.team.form.inherit.mh</field>
+            <field name="model">crm.team</field>
+            <field name="inherit_id" ref="sales_team.crm_team_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='user_id']" position="before">
+                    <field name="team_code"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
